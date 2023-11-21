@@ -1,0 +1,72 @@
+CREATE TABLE usuarios (
+  id INT NOT NULL PRIMARY KEY,
+  nombre VARCHAR(255) NOT NULL,
+  apellido VARCHAR(255) NOT NULL,
+  correo_electronico VARCHAR(255) NOT NULL UNIQUE,
+  contrasena VARCHAR(255) NOT NULL,
+  rol VARCHAR(255) NOT NULL,
+  estado VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE calificaciones (
+  id INT NOT NULL PRIMARY KEY,
+  alumno_id INT NOT NULL REFERENCES usuarios (id),
+  asignatura_id INT NOT NULL REFERENCES asignaturas (id),
+  calificacion INT NOT NULL,
+  comentario VARCHAR(255),
+  fecha TIMESTAMP
+);
+
+CREATE TABLE asignaturas (
+  id INT NOT NULL PRIMARY KEY,
+  nombre VARCHAR(255) NOT NULL,
+  nivel VARCHAR(255) NOT NULL,
+  descripcion VARCHAR(255)
+);
+
+CREATE TABLE recursos_educativos (
+  id INT NOT NULL PRIMARY KEY,
+  titulo VARCHAR(255) NOT NULL,
+  autor VARCHAR(255) NOT NULL,
+  tipo VARCHAR(255) NOT NULL,
+  archivo VARCHAR(255) NOT NULL,
+  fecha TIMESTAMP,
+  ultimo_acceso TIMESTAMP
+);
+
+CREATE TABLE anuncios_informacion_escolar (
+  id INT NOT NULL PRIMARY KEY,
+  titulo VARCHAR(255) NOT NULL,
+  contenido VARCHAR(255) NOT NULL,
+  fecha DATE,
+  autor VARCHAR(255) NOT NULL
+);
+CREATE TABLE perfiles_profesores (
+  id INT NOT NULL PRIMARY KEY,
+  usuario_id INT NOT NULL REFERENCES usuarios (id),
+  informacion_personal VARCHAR(255),
+  informacion_academica VARCHAR(255),
+  informacion_contacto VARCHAR(255),
+  foto VARCHAR(255)
+);
+CREATE TABLE perfiles_alumnos (
+  id INT NOT NULL PRIMARY KEY,
+  usuario_id INT NOT NULL REFERENCES usuarios (id),
+  informacion_personal VARCHAR(255),
+  informacion_academica VARCHAR(255),
+  informacion_contacto VARCHAR(255),
+  foto VARCHAR(255)
+);
+ALTER TABLE perfiles_profesores
+ADD CONSTRAINT perfiles_profesores_usuarios_fk FOREIGN KEY (usuario_id) REFERENCES usuarios (id);
+
+ALTER TABLE perfiles_alumnos
+ADD CONSTRAINT perfiles_alumnos_usuarios_fk FOREIGN KEY (usuario_id) REFERENCES usuarios (id);
+
+
+ALTER TABLE calificaciones
+ADD CONSTRAINT calificaciones_usuarios_fk FOREIGN KEY (alumno_id) REFERENCES usuarios (id);
+
+ALTER TABLE calificaciones
+ADD CONSTRAINT calificaciones_asignaturas_fk FOREIGN KEY (asignatura_id) REFERENCES asignaturas (id);
+
