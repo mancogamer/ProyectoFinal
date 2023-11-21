@@ -15,5 +15,8 @@ namespace WebApplication1.Context
         public DbSet<Asignatura> Asignaturas { get; set; }
         public DbSet<recursos_educativo> RecursosEducativos { get; set; }
         public DbSet<AnuncioInformacionEscolar> AnunciosInformacionEscolar { get; set; }
+        public DbSet<Calificaciones> Calificacion { get; set; }
+        public DbSet<PerfilesProfesor> PerfilProfesor { get; set; }
+        public DbSet<PerfilesAlumnos> PerfilAlumno { get; set; }
     }
 }
