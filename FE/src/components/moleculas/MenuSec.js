@@ -14,7 +14,7 @@ export default function MenuSec() {
       <Button style={{ textAlign:'center', backgroundColor:'#75c0ee', color:'black', marginLeft:'30px',  }}>
         Informacion Escolar
       </Button>
-      <Button style={{ textAlign:'center', backgroundColor:'#75c0ee', color:'black', marginLeft:'750px' }}>
+      <Button style={{ textAlign:'center', backgroundColor:'#75c0ee', color:'black', marginLeft:'450px' }}>
         Noticias y Eventos
       </Button>
       <Button style={{ textAlign:'center', backgroundColor:'#75c0ee', color:'black', marginLeft:'7px' }}>

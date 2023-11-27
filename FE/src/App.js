@@ -9,9 +9,11 @@ import MaterialDidacticoPrimaria from "./components/pages/MaterialDidacticoPrima
 import PerfilDocente from "./components/pages/PerfilDocente";
 import Calificaciones from "./components/pages/Calificaciones";
 import ProyectosRealizados from "./components/pages/ProyectosRealizados";
+import BusquedaDocente from "./components/pages/BusquedaDocente";
 import PerfilEstudiante from "./components/pages/PerfilEstudiante";
 import CalificacionesEstudiante from "./components/pages/CalificacionesEstudiante";
 import ProyectosRealizadosPrim from "./components/pages/ProyectosRealizadosPrim";
+import BusquedaEstudiante from "./components/pages/BusquedaEstudiantes";
 import AcercaNosotros from "./components/pages/AcercaNosotros";
 const App = () => {
   return (
@@ -27,9 +29,11 @@ const App = () => {
       <PerfilDocente />
       <Calificaciones />
       <ProyectosRealizados />
+      <BusquedaDocente />
       <PerfilEstudiante />
       <CalificacionesEstudiante />
       <ProyectosRealizadosPrim />
+      <BusquedaEstudiante />
       <AcercaNosotros />
     </div>
   );
